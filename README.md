@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://fm-expenses-chart-comp.netlify.app/)
+- Live Site URL: [Netlify -Expenses chart component ](https://fm-expenses-chart-comp.netlify.app/)
 
 ## My process
 
