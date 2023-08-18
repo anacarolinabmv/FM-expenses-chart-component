@@ -26,12 +26,15 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-width: 30rem;
 }
 
 p {
   font-size: 1.6rem;
 }
-
+main {
+  margin: 0 auto;
+}
 .section--balance,
 .section--spending {
   margin-bottom: 2rem;
@@ -41,7 +44,7 @@ p {
 .balance--container {
   border-radius: 2rem;
   padding: 2.4rem 3rem;
-  min-width: 42rem;
+  max-width: 48rem;
 }
 .balance--container {
   background-color: var(--soft-red);
@@ -55,8 +58,9 @@ p {
   font-weight: 400;
   margin-bottom: 0.4em;
 }
-.balance {
-  font-size: 3rem;
+.balance,
+.total--spending {
+  font-size: 3.2rem;
   font-weight: 700;
 }
 .spending--container {
@@ -65,14 +69,14 @@ p {
 
 .heading--large {
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: var(--dark-brown);
   margin-bottom: 5rem;
 }
 
 .chart {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.4rem;
   justify-content: space-between;
   align-items: flex-end;
 }
@@ -82,7 +86,7 @@ p {
   position: relative;
   cursor: pointer;
   height: 4rem;
-  border-radius: 6px;
+  border-radius: 5px;
   transition: background-color 100ms ease-in;
   position: relative;
 }
@@ -105,7 +109,7 @@ p {
   width: 150%;
   transform: translate(-50%, -120%);
   margin-bottom: 1rem;
-  border-radius: 6px;
+  border-radius: 5px;
   color: var(--very-pale-orange);
   display: flex;
   justify-content: center;
@@ -134,10 +138,7 @@ p {
   color: var(--medium-brown);
   font-size: 1.4rem;
 }
-.total--spending {
-  font-size: 3.4rem;
-  font-weight: 700;
-}
+
 .percentage {
   font-size: 1.6rem;
   text-align: right;
@@ -151,9 +152,57 @@ p {
 .attribution {
   font-size: 1.4rem;
   text-align: center;
+  margin: 0 auto;
 }
 .attribution a {
   font-weight: 600;
   color: var(--soft-red);
   text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  main {
+    width: 90%;
+  }
+  .chart {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .spending--container,
+  .balance--container {
+    padding: 2rem;
+    border-radius: 1.2rem;
+  }
+  .balance,
+  .total--spending {
+    font-size: 3rem;
+  }
+  .heading--large {
+    font-size: 2.4rem;
+  }
+  .chart {
+    gap: 1rem;
+  }
+  .attribution {
+    width: 90%;
+  }
+}
+
+@media (max-width: 340px) {
+  .balance,
+  .total--spending {
+    font-size: 2.6rem;
+  }
+  .heading--large {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .chart {
+    gap: 1rem;
+  }
+  .attribution {
+    width: 90%;
+  }
 }
