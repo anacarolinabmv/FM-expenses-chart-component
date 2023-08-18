@@ -67,22 +67,26 @@ p {
   font-weight: 700;
   font-size: 2.8rem;
   color: var(--dark-brown);
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .chart {
   display: flex;
   gap: 1.6rem;
   justify-content: space-between;
+  align-items: flex-end;
 }
 .day {
   width: 4rem;
-  height: 7rem;
-  background-color: var(--soft-red);
+  background-color: rgb(236, 119, 95, 1);
   position: relative;
   cursor: pointer;
+  height: 4rem;
   border-radius: 6px;
+  transition: background-color 100ms ease-in;
+  position: relative;
 }
+
 .day p {
   position: absolute;
   bottom: -2.5rem;
@@ -91,6 +95,28 @@ p {
   color: var(--medium-brown);
   font-size: 1.3rem;
 }
+.label {
+  position: absolute;
+  top: 0rem;
+  left: 50%;
+  background-color: var(--dark-brown);
+  font: 1.6rem;
+  padding: 1em;
+  width: 120%;
+  transform: translate(-50%, -4rem);
+  border-radius: 6px;
+  color: var(--very-pale-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.day:hover > .label {
+  visibility: visible;
+  opacity: 1;
+}
+
 .line {
   background-color: var(--cream);
   height: 2px;
