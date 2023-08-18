@@ -13,7 +13,7 @@ const initChart = function () {
 
   jsonData.forEach((data) => {
     const html = `<div class="day"><p>${data.day}</p>
-    <div class="label">${data.amount}</div>
+    <div class="label">$${data.amount}</div>
     </div>`;
     chart.insertAdjacentHTML('beforeend', html);
   });
