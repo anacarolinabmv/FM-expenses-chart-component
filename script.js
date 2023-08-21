@@ -8,25 +8,16 @@ const jsonData = [
   { day: 'sun', amount: 25.48 },
 ];
 
-const changeBckgColor = function (day, dayToday, a) {
-  const color = day === dayToday ? `rgba(118, 181, 188,${a})` : `rgba(236, 119, 95, ${a})`;
+const changeBckgColor = function (day, dayToday, alpha) {
+  const color = day === dayToday ? `rgba(118, 181, 188,${alpha})` : `rgba(236, 119, 95, ${alpha})`;
   day.style.backgroundColor = `${color}`;
 };
 
-const initChart = function () {
-  const chart = document.querySelector('.chart');
-  const today = new Date().getDay() - 1;
-
-  jsonData.forEach((data) => {
-    const html = `<div class="day"><p>${data.day}</p>
-    <div class="label">$${data.amount}</div>
-    </div>`;
-    chart.insertAdjacentHTML('beforeend', html);
-  });
-
+const renderChartBars = function () {
   const days = Array.from(document.querySelectorAll('.day'));
-  const dayToday = days[today];
 
+  const today = new Date().getDay() - 1;
+  const dayToday = days[today];
   dayToday.style.backgroundColor = `rgba(118, 181, 188)`;
 
   days.forEach((day, i) => {
@@ -35,18 +26,24 @@ const initChart = function () {
     day.addEventListener('mouseenter', () => {
       changeBckgColor(day, dayToday, 0.5);
     });
+
     day.addEventListener('mouseleave', () => {
       changeBckgColor(day, dayToday, 1);
     });
   });
 };
 
+const initChart = function () {
+  const chart = document.querySelector('.chart');
+
+  jsonData.forEach((data) => {
+    const html = `<div class="day"><p>${data.day}</p>
+    <div class="label">$${data.amount}</div>
+    </div>`;
+    chart.insertAdjacentHTML('beforeend', html);
+  });
+
+  renderChartBars();
+};
+
 initChart();
-
-const mq = window.matchMedia('(max-width:340px)');
-
-if (mq.matches) {
-  const largeHeading = document.querySelector('.heading--large');
-
-  largeHeading.style.marginBottom = '2.5rem';
-}
